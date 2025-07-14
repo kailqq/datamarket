@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{report}
+
+% Format sheet
+\input{format/format.tex}
+
+
+
+\begin{document}
+
+% Report info
+\input{info/info.tex}
+
+% Self-defined cmds
+\input{commands/commands.tex}
+
+% Report cover
+\input{cover/cover.tex}
+
+% Make contents
+\tableofcontents
+\thispagestyle{empty}
+\setcounter{page}{0}
+
+% Main chapters
+\newpage
+\chapter{INTRODUCTION}
+\input{body/intro.tex}
+
+\chapter{THEORY}
+\input{body/theory.tex}
+
+\chapter{EXPERIMENTS}
+\input{body/experiments.tex}
+
+%Appendix
+\input{body/appendix.tex}
+
+\end{document}

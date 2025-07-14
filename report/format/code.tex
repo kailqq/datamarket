@@ -1,0 +1,45 @@
+% Format: If-Then structure
+\usepackage{ifthen}
+
+% Format: Code beautify
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{vgreen}{RGB}{104,180,104}
+\definecolor{vblue}{RGB}{49,49,255}
+\definecolor{vorange}{RGB}{255,143,102}
+\definecolor{grey}{HTML}{E7EAEF}
+\usepackage{minted}
+\usemintedstyle{rainbow_dash}
+\setminted{bgcolor=grey,autogobble, breaklines, linenos,breakanywhere,breakautoindent, frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize}
+\lstset{
+    language=Verilog,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{red},
+    stringstyle=\color{yellow},
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true,
+    showstringspaces=false,
+    frame=tb,
+    captionpos=b,
+    tabsize=4
+}
+
+\makeatletter
+\newcommand*\@lbracket{[}
+\newcommand*\@rbracket{]}
+\newcommand*\@colon{:}
+\newcommand*\colorIndex{%
+    \edef\@temp{\the\lst@token}%
+    \ifx\@temp\@lbracket \color{black}%
+    \else\ifx\@temp\@rbracket \color{black}%
+    \else\ifx\@temp\@colon \color{black}%
+    \else \color{vorange}%
+    \fi\fi\fi
+}
+\makeatother
+\newenvironment*{longlisting}{\captionsetup{type=listing}}{}
+
+
+\usepackage{underscore}

@@ -1,0 +1,37 @@
+% 目录颜色设置
+\usepackage{xcolor} % 确保颜色支持
+% Format: Contents
+\usepackage{titletoc}
+\usepackage{hyperref}
+
+% 设置目录深度为1，只显示chapter和section，不显示subsection
+\setcounter{tocdepth}{1}
+    
+% 不再加载tocloft，避免与titletoc冲突
+% hyperref已在body.tex中加载，不再重复
+
+% 目录标题颜色设置 - 使用titlesec
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bfseries\color{gray}}{\thechapter}{1em}{}
+
+% 为hyperref添加颜色设置 (补充body.tex中的设置)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,         % 目录链接颜色
+    citecolor=green,        % 引用颜色
+    urlcolor=magenta        % URL颜色
+}
+
+\titlecontents{chapter}[0pt]
+    {\vspace{.2\baselineskip}\color{blue}\bfseries}
+    {\normalsize{\thecontentslabel}~\hspace{.5em}}
+    {}
+    {\dotfill\contentspage[{\makebox[0pt][r]{\color{blue}\thecontentspage}}]}
+    [\vspace{.1\baselineskip}]
+
+\titlecontents{section}[1.16cm]
+    {\vspace{.1\baselineskip}\color{teal}}
+    {\normalsize{\thecontentslabel}~\hspace{.5em}}
+    {}
+    {\dotfill\contentspage[{\makebox[0pt][r]{\color{teal}\thecontentspage}}]}
+    [\vspace{.1\baselineskip}]
