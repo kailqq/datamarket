@@ -140,10 +140,6 @@ def generate_curves_algorithm2(N: int, m: int, J: float, epsilon: float, num_sam
     return curves
 
 
-# ==============================================================================
-# 2. 结果预计算 
-# ==============================================================================
-
 def precompute_outcomes(price_curves: list, m_types: int, N_items: int):
     """
     预先计算每个(价格曲线, 买家类型)组合的购买决策和收入。

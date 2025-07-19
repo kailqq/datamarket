@@ -176,26 +176,19 @@ class UCBAgent:
         self.t += 1
 
 # ==============================================================================
-# 3. 综合运行函数
+#  综合运行函数
 # ==============================================================================
 
 def run_with_visualization(M_TYPES=3, N_ITEMS=100, T_HORIZON=5000, Q_TRUE=None,J=2.0,epsilon=0.1,num_samples=7):
     """
     运行UCB算法并生成所有可视化
     """
-    
-    print("🚀 开始UCB算法可视化演示")
-    print("=" * 50)
-    
-    print("\n📊 1. 准备数据...")
     price_curves = generate_curves_algorithm2(N_ITEMS, M_TYPES, J, epsilon, num_samples)
     revenues, purchases = precompute_outcomes(price_curves, M_TYPES, N_ITEMS)
     
     # 2. 初始化并运行UCB Agent
-    print("\n🤖 2. 初始化UCB Agent...")
     agent = UCBAgent(M_TYPES, T_HORIZON, revenues, purchases)
     
-    print(f"\n🎯 3. 开始模拟运行 (T={T_HORIZON})...")
     total_revenue = 0
     
     # 用于进度显示
@@ -282,6 +275,6 @@ if __name__ == '__main__':
     print(f"最常选择的价格曲线: 曲线{best_action} (选择了 {action_counts[best_action]} 次)")
     
     if output_folder is not None:
-        print(f"📂 请查看生成的图片文件夹: {output_folder}")
+        print(f"请查看生成的图片文件夹: {output_folder}")
     
     print(f"\n✅ 测试完成!")
